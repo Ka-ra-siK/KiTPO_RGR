@@ -3,6 +3,7 @@ package ru.avtf.kitpo.kitpo_rgr_konovalov;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public UserFactory userFactory;
     public UserType userType;
     public CycleList cycleList;
-    private String FILE_NAME = "file.txt";
+    private String FILE_NAME_DOUBLE = "double.txt";
+    private String FILE_NAME_POINT = "point.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +43,21 @@ public class MainActivity extends AppCompatActivity {
         String[] types = new String[typeNameList.size()];
         for (int i = 0; i < typeNameList.size(); i++) {
             types[i] = typeNameList.get(i);
+            Log.d("PRINT_TYPES", types[i]);
         }
-        ArrayAdapter<String> typesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
         Spinner spinner = (Spinner) findViewById(R.id.factoryListItems);
-        spinner.setAdapter(typesAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+//        ArrayAdapter<String> typesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item,
+                        types);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("PRINT_TYPES_SELECT", "Type is selected " + parent.getSelectedItem().toString());
                 userType = UserFactory.getBuilderByName(parent.getSelectedItem().toString());
                 assert userType != null;
                 cycleList = new CycleList(userType.getTypeComparator());
@@ -140,7 +149,12 @@ public class MainActivity extends AppCompatActivity {
         saveButton.setOnClickListener((view) -> {
             BufferedWriter bufferedWriter = null;
             try {
-                bufferedWriter = new BufferedWriter(new OutputStreamWriter((openFileOutput(FILE_NAME, MODE_PRIVATE))));
+                Log.d("MY_TAG", userType.typeName());
+                if (userType.typeName().equals("Double")) {
+                    bufferedWriter = new BufferedWriter(new OutputStreamWriter((openFileOutput(FILE_NAME_DOUBLE, MODE_PRIVATE))));
+                } else {
+                    bufferedWriter = new BufferedWriter(new OutputStreamWriter((openFileOutput(FILE_NAME_POINT, MODE_PRIVATE))));
+                }
             } catch (FileNotFoundException e) {
                 Toast.makeText(getBaseContext(), "Ошибка при записи файла!", Toast.LENGTH_LONG).show();
                 e.printStackTrace();
@@ -176,9 +190,13 @@ public class MainActivity extends AppCompatActivity {
         loadButton.setOnClickListener((view) -> {
             BufferedReader bufferedReader;
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader((openFileInput(FILE_NAME))));
-            }
-            catch (Exception ex) {
+                Log.d("MY_TAG", userType.typeName());
+                if (userType.typeName().equals("Double")) {
+                    bufferedReader = new BufferedReader(new InputStreamReader((openFileInput(FILE_NAME_DOUBLE))));
+                } else {
+                    bufferedReader = new BufferedReader(new InputStreamReader((openFileInput(FILE_NAME_POINT))));
+                }
+            } catch (Exception ex) {
                 Toast.makeText(getBaseContext(), "Ошибка при чтении файла!", Toast.LENGTH_LONG).show();
                 return;
             }
@@ -198,8 +216,7 @@ public class MainActivity extends AppCompatActivity {
                 while ((line = bufferedReader.readLine()) != null) {
                     try {
                         cycleList.add(userType.parseValue(line));
-                    }
-                    catch (Exception ex) {
+                    } catch (Exception ex) {
                         Toast.makeText(getBaseContext(), "Ошибка при чтении файла!", Toast.LENGTH_LONG).show();
                         return;
                     }
