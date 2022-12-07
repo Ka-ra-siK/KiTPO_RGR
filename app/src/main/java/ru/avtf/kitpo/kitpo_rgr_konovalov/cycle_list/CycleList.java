@@ -22,8 +22,6 @@ import ru.avtf.kitpo.kitpo_rgr_konovalov.types.users.UserType;
  * @see CycleList#getLength() получение длины списка
  * @see CycleList#sort(Comparator) сортировка слиянием
  * @see CycleList#printList() печать списка
- * @see CycleList#save(UserType, String) сохранение
- * @see CycleList#load(UserType, String) загрузка
  */
 public class CycleList {
     private Node head;
@@ -110,7 +108,10 @@ public class CycleList {
     }
 
     public Object getByIndex(int index) {
-        return getNode(index).data;
+        if (index < 0 || index >= this.length)
+            return null;
+        else
+            return getNode(index).data;
     }
 
     public int getLength() {
@@ -257,43 +258,5 @@ public class CycleList {
     public void clearList() {
         head = null;
         length = 0;
-    }
-
-    /**
-     * Сохранение в файл
-     * @param userType тип данных
-     * @param fileName название файла для загрузки
-     */
-    public void save(UserType userType, String fileName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(userType.typeName() + "\n");
-            this.forEach(el -> {
-                writer.write(userType.toString(el) + "\n");
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Загрузка из файла
-     * @param userType тип данных
-     * @param fileName название файла для загрузки
-     */
-    public void load(UserType userType, String fileName) {
-        clearList();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            line = br.readLine();
-            if (!userType.typeName().equals(line)) {
-                throw new Exception("Wrong file structure");
-            }
-
-            while ((line = br.readLine()) != null) {
-                add(userType.parseValue(line));
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }

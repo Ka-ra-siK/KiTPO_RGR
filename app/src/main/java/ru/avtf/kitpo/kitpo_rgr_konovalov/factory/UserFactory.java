@@ -18,10 +18,14 @@ public class UserFactory {
 
     static {
         ArrayList<UserType> buildersClasses = new ArrayList<>(Arrays.asList(new DoubleUserType(), new PointUserType()));
-        buildersClasses.forEach(userType -> typeList.add(userType));
+        typeList.addAll(buildersClasses);
     }
-    public static Set<String> getTypeNameList() {
-        return typeList.stream().map(UserType::typeName).collect(Collectors.toSet());
+    public static ArrayList<String> getTypeNameList() {
+        ArrayList<String> typeNameListString = new ArrayList<>();
+        for (UserType userType : typeList) {
+            typeNameListString.add(userType.typeName());
+        }
+        return typeNameListString;
     }
     public static UserType getBuilderByName(String name){
         if (name == null){
