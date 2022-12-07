@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         }
         Spinner spinner = (Spinner) findViewById(R.id.factoryListItems);
 
-//        ArrayAdapter<String> typesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item,
                         types);
