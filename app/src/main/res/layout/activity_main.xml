@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
     </LinearLayout>
@@ -36,91 +36,91 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="16dp"
-            android:text="Найти по индексу:">
+            android:textSize="16sp"
+            android:text="@string/findByIndexString">
         </TextView>
 
         <EditText
             android:id="@+id/findByIdField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/findByIdButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Найти">
+            android:text="@string/findByIndexButtonString">
         </Button>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="16dp"
-            android:text="Удалить по индексу:">
+            android:textSize="16sp"
+            android:text="@string/deleteByIndexString">
         </TextView>
 
         <EditText
             android:id="@+id/deleteByIdField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/deleteByIdButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Удалить">
+            android:text="@string/deleteByIndexButtonString">
         </Button>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="16dp"
-            android:text="Вставить по индексу:">
+            android:textSize="16sp"
+            android:text="@string/insertByIndexString">
         </TextView>
 
         <EditText
             android:id="@+id/insertByIdField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/insertByIdButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вставить">
+            android:text="@string/insertByIndexButtonString">
         </Button>
 
         <Button
             android:id="@+id/sortButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сортировать">
+            android:text="@string/sortButtonString">
         </Button>
 
         <Button
             android:id="@+id/insertButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сгенерировать">
+            android:text="@string/insertButtonString">
         </Button>
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сохранить">
+            android:text="@string/saveButtonString">
         </Button>
 
         <Button
             android:id="@+id/loadButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Загрузить">
+            android:text="@string/loadButtonString">
         </Button>
 
         <Button
@@ -128,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
-            android:text="Очистить">
+            android:text="@string/clearButtonString">
         </Button>
 
     </LinearLayout>
