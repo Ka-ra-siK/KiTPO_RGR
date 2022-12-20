@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Циклический список</string>
     <string name="findByIndexString">Найти по индексу:</string>
-    <string name="findByIndexButtonString">Найти</string>
+    <string name="findByIndexButtonString">Найти по id</string>
     <string name="deleteByIndexString">Удалить по индексу:</string>
-    <string name="deleteByIndexButtonString">Удалить</string>
+    <string name="deleteByIndexButtonString">Удалить по id</string>
     <string name="insertByIndexString">Вставить по индексу:</string>
     <string name="insertByIndexButtonString">Вставить</string>
     <string name="sortButtonString">Сортировать</string>

@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public UserFactory userFactory;
     public UserType userType;
     public CycleList cycleList;
-    private String FILE_NAME_DOUBLE = "double.txt";
-    private String FILE_NAME_POINT = "point.txt";
+    private final String FILE_NAME_DOUBLE = "double.txt";
+    private final String FILE_NAME_POINT = "point.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void buttonInitialization() {
 
-        Button findByIdButton = (Button) findViewById(R.id.findByIdButton);
         Button deleteByIdButton = (Button) findViewById(R.id.deleteByIdButton);
         Button insertByIdButton = (Button) findViewById(R.id.insertByIdButton);
         Button sortButton = (Button) findViewById(R.id.sortButton);
@@ -85,21 +84,6 @@ public class MainActivity extends AppCompatActivity {
         Button saveButton = (Button) findViewById(R.id.saveButton);
         Button loadButton = (Button) findViewById(R.id.loadButton);
         Button clearButton = (Button) findViewById(R.id.clearButton);
-
-        //Поиск элемента списка по id
-        findByIdButton.setOnClickListener((view) -> {
-            EditText findByIdField = (EditText) findViewById(R.id.findByIdField);
-            if (findByIdField.getText().toString().equals("")) {
-                Toast.makeText(getBaseContext(), "Введите индекс для поиска!", Toast.LENGTH_LONG).show();
-            } else {
-                if (cycleList.getByIndex(Integer.parseInt(String.valueOf(findByIdField.getText()))) == null) {
-                    Toast.makeText(getBaseContext(), "Введите правильный индекс для поиска!", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getBaseContext(), "Найденное значение: " +
-                            cycleList.getByIndex(Integer.parseInt(String.valueOf(findByIdField.getText()))), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
 
         //Удаление элемента списка по id
         deleteByIdButton.setOnClickListener((view) -> {

@@ -1,137 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
+    <Spinner
+        android:id="@+id/factoryListItems"
+        android:layout_width="291dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-    <LinearLayout
-        android:layout_width="246dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <!--    <Button-->
+<!--        android:id="@+id/sortButton"-->
+<!--        android:layout_width="187dp"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="104dp"-->
+<!--        android:text="@string/sortButtonString"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/insertButton"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/outTextView"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        tools:ignore="MissingConstraints"></Button>-->
 
-        <TextView
-            android:id="@+id/outTextView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+<!--    <Button-->
+<!--        android:id="@+id/insertButton"-->
+<!--        android:layout_width="183dp"-->
+<!--        android:layout_height="54dp"-->
+<!--        android:layout_marginTop="104dp"-->
+<!--        android:layout_marginEnd="12dp"-->
+<!--        android:text="@string/insertButtonString"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/outTextView"-->
+<!--        app:layout_constraintVertical_bias="0.026"-->
+<!--        tools:ignore="MissingConstraints"></Button>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/saveButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loadButton"></Button>
 
-        <Spinner
-            android:id="@+id/factoryListItems"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            />
+    <EditText
+        android:id="@+id/deleteByIdField"
+        android:layout_width="55dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/factoryListItems"
+        app:layout_constraintVertical_bias="0.991"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            
-            android:textSize="16sp"
-            android:text="@string/findByIndexString">
-        </TextView>
+    <EditText
+        android:id="@+id/insertByIdField"
+        android:layout_width="55dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/factoryListItems"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
 
-        <EditText
-            android:id="@+id/findByIdField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/outTextView"
+        android:layout_width="348dp"
+        android:layout_height="456dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/insertByIdButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/factoryListItems"
+        app:layout_constraintVertical_bias="0.125"
+        tools:ignore="MissingConstraints" />
 
-        <Button
-            android:id="@+id/findByIdButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/findByIndexButtonString">
-        </Button>
+    <Button
+        android:id="@+id/insertByIdButton"
+        android:layout_width="97dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="120dp"
+        android:text="@string/insertByIndexButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loadButton"></Button>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            
-            android:textSize="16sp"
-            android:text="@string/deleteByIndexString">
-        </TextView>
+    <Button
+        android:id="@+id/deleteByIdButton"
+        android:layout_width="97dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="116dp"
+        android:text="@string/deleteByIndexButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deleteByIdField"
+        tools:ignore="MissingConstraints"></Button>
 
-        <EditText
-            android:id="@+id/deleteByIdField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:text="@string/insertButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sortButton"></Button>
 
-        <Button
-            android:id="@+id/deleteByIdButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/deleteByIndexButtonString">
-        </Button>
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="182dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="68dp"
+        android:text="@string/sortButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loadButton"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            
-            android:textSize="16sp"
-            android:text="@string/insertByIndexString">
-        </TextView>
+    <Button
+        android:id="@+id/loadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/loadButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 
-        <EditText
-            android:id="@+id/insertByIdField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/clearButtonString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 
-        <Button
-            android:id="@+id/insertByIdButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/insertByIndexButtonString">
-        </Button>
-
-        <Button
-            android:id="@+id/sortButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sortButtonString">
-        </Button>
-
-        <Button
-            android:id="@+id/insertButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/insertButtonString">
-        </Button>
-
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/saveButtonString">
-        </Button>
-
-        <Button
-            android:id="@+id/loadButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/loadButtonString">
-        </Button>
-
-        <Button
-            android:id="@+id/clearButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/clearButtonString">
-        </Button>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
